@@ -1,6 +1,6 @@
 {
-    "name": "react-user-avatar",
-    "version": "1.0.0",
+    "name": "react-useravatar",
+    "version": "1.0.4",
     "description": "",
     "main": "index.js",
     "scripts": {

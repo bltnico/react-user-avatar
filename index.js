@@ -3,4 +3,5 @@
  * Links : https://github.com/bltnico
  */
 
-module.exports = require('./lib/UserAvatar');
+var UserAvatar = require('./lib/UserAvatar');
+module.exports = UserAvatar;
