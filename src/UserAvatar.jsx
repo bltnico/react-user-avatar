@@ -8,7 +8,7 @@ import React from 'react';
  *
  * @author https://github.com/bltnico
  * @url https://github.com/bltnico/react-user-avatar
- * @version 1.0.4
+ * @version 1.0.5
  *
  * @example
  *
@@ -33,13 +33,11 @@ export default class UserAvatar extends React.Component {
             color : null,
             text : null
         }
-
-        this.initState();
     }
 
-    initState() {
+    componentDidMount() {
         this.setState({
-            color : this.intToRGB(this.hashCode(this.props.username)),
+            color : this.getColor(),
             text : this.getText()
         });
     }
@@ -73,9 +71,20 @@ export default class UserAvatar extends React.Component {
      * @param {Integer} int
      * @return {String}
      */
-    intToRGB(int) {
-        let c = (int & 0x00FFFFFF).toString(16).toUpperCase();
+    intToRGB(i) {
+        let c = (i & 0x00FFFFFF)
+        .toString(16)
+        .toUpperCase();
+
         return "00000".substring(0, 6 - c.length) + c;
+    }
+
+    /**
+     * Get color with username
+     * @return {String}
+     */
+    getColor() {
+        return this.intToRGB(this.hashCode(this.props.username));
     }
 
     /**
