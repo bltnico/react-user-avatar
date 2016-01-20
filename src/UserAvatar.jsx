@@ -8,7 +8,7 @@ import React from 'react';
  *
  * @author https://github.com/bltnico
  * @url https://github.com/bltnico/react-user-avatar
- * @version 1.0.9
+ * @version 1.1.0
  *
  * @example
  *
@@ -115,7 +115,9 @@ export default class UserAvatar extends React.Component {
 
         const styles = {
             container : {
-                backgroundColor : "#" + this.state.color,
+                backgroundColor : (!this.props.borderStyle) ? "#" + this.state.color : "transparent",
+                borderWidth : (!this.props.borderStyle) ? 0 : 2,
+                borderColor : (!this.props.borderStyle) ? "none" : this.state.color,
                 borderRadius : this.props.size / 2,
                 width : this.props.size,
                 height : this.props.size,
@@ -123,13 +125,13 @@ export default class UserAvatar extends React.Component {
                 lineHeight : this.props.size + "px"
             },
             text : {
-                color : this.props.textColor,
+                color : (!this.props.borderStyle) ? this.props.textColor : this.state.color,
                 fontSize : (this.props.size / 3) + "px"
             }
         }
 
         return (
-            <div style={styles.container} onClick={this._onClick}>
+            <div style={styles.container} onClick={this._onClick.bind(this)}>
                 <span style={styles.text}>{this.state.text}</span>
             </div>
         );
@@ -144,7 +146,8 @@ UserAvatar.propTypes = {
     username : React.PropTypes.string.isRequired,
     size : React.PropTypes.number,
     onClick : React.PropTypes.func,
-    textColor : React.PropTypes.string
+    textColor : React.PropTypes.string,
+    borderStyle : React.PropTypes.bool,
 };
 
 /**
@@ -152,5 +155,6 @@ UserAvatar.propTypes = {
  */
 UserAvatar.defaultProps = {
     size : 100,
-    textColor : "#ffffff"
+    textColor : "#ffffff",
+    borderStyle : false
 };
