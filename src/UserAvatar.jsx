@@ -8,7 +8,7 @@ import React from 'react';
  *
  * @author https://github.com/bltnico
  * @url https://github.com/bltnico/react-user-avatar
- * @version 1.1.0
+ * @version 1.1.1
  *
  * @example
  *
@@ -116,8 +116,7 @@ export default class UserAvatar extends React.Component {
         const styles = {
             container : {
                 backgroundColor : (!this.props.borderStyle) ? "#" + this.state.color : "transparent",
-                borderWidth : (!this.props.borderStyle) ? 0 : 2,
-                borderColor : (!this.props.borderStyle) ? "none" : this.state.color,
+                border : (!this.props.borderStyle) ? "none" : "2px solid " + this.state.color,
                 borderRadius : this.props.size / 2,
                 width : this.props.size,
                 height : this.props.size,
