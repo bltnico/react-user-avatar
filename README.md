@@ -1,7 +1,5 @@
 # react-user-avatar
 
--------
-
 ## Install
 
 Run `npm i react-useravatar --save`
