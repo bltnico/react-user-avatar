@@ -1,7 +1,7 @@
 {
     "name": "react-useravatar",
     "version": "1.1.1",
-    "description": "",
+    "description": "Create a unique avatar by using username as background color",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,8 @@
         "url" : "https://github.com/bltnico/react-user-avatar"
     },
     "keywords" : [
+        "react-component",
+        "web",
         "react",
         "user-avatar"
     ],
